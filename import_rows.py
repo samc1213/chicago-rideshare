@@ -2,7 +2,7 @@ import csv
 import psycopg2 as psy
 
 row_count = 0
-conn = psy.connect(host='localhost', port=5433, database='rideshare', user='rideshare', password='rideshare')
+conn = psy.connect(host='localhost', port=5432, database='rideshare', user='rideshare', password='rideshare')
 cur = conn.cursor()
 sql = 'INSERT INTO trip (trip_id, trip_start_timestamp, trip_end_timestamp, trip_seconds, trip_miles, pickup_census_tract, dropoff_census_tract, fare, tip, additional_charges, shared_trip_authorized, trips_pooled, pickup_centroid_location, dropoff_centroid_location) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
 with open('tripdata.csv', 'rb') as f:
